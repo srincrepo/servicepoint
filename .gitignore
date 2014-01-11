@@ -1,0 +1,19 @@
+# generated files
+bin
+target
+
+# dev folders
+servicepoint_data
+
+# Eclipse Ignores
+.classpath
+.project
+.settings
+.metadata
+*.eclipse.jdt.core.prefs
+
+# IDEA Ignores
+*.iml
+*.ipr
+*.iws
+.idea
