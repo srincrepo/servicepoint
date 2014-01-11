@@ -1,5 +1,7 @@
 package com.sr.servicepoint.core.dto;
 
+import org.dozer.Mapping;
+
 import java.util.List;
 
 public class UserInfo {
@@ -7,9 +9,16 @@ public class UserInfo {
     private String username;
     private String password;
     private String confirmPassword;
+
+    @Mapping("name.firstName")
     private String firstName;
+
+    @Mapping("name.middleInitial")
     private String middleInitial;
+
+    @Mapping("name.lastName")
     private String lastName;
+
     private List<ContactInfo> contacts;
 
     public String getUsername() {

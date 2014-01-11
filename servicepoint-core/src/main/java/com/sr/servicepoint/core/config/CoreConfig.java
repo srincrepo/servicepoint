@@ -1,5 +1,7 @@
 package com.sr.servicepoint.core.config;
 
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -60,6 +62,11 @@ public class CoreConfig {
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    @Bean
+    public Mapper mapper() {
+        return new DozerBeanMapper();
     }
 
 }

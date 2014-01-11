@@ -1,11 +1,11 @@
 package com.sr.servicepoint.core.service.impl;
 
 import com.sr.servicepoint.core.dto.UserInfo;
-import com.sr.servicepoint.core.entity.Name;
 import com.sr.servicepoint.core.entity.User;
 import com.sr.servicepoint.core.exception.UserNotFoundException;
 import com.sr.servicepoint.core.repo.UserRepo;
 import com.sr.servicepoint.core.service.UserService;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +15,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private Mapper mapper;
+
     @Override
     public void saveUser(UserInfo userInfo) {
-        userRepo.save(toUserInfo(userInfo));
+        User user = mapper.map(userInfo, User.class);
+        userRepo.save(user);
     }
 
     @Override
@@ -26,31 +30,7 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new UserNotFoundException();
         }
-        return toUser(user);
-    }
-
-    private User toUserInfo(UserInfo userInfo) {
-        User user = new User();
-        user.setUsername(userInfo.getUsername());
-        user.setPassword(userInfo.getPassword());
-        user.setName(new Name(userInfo.getFirstName(),
-                userInfo.getMiddleInitial(), userInfo.getLastName()));
-        //TODO map contacts
-        return user;
-    }
-
-    private UserInfo toUser(User user) {
-        UserInfo userInfo = new UserInfo();
-        Name name = user.getName();
-        if (name != null) {
-            userInfo.setFirstName(name.getFirstName());
-            userInfo.setMiddleInitial(name.getMiddleInitial());
-            userInfo.setLastName(name.getLastName());
-        }
-        userInfo.setUsername(user.getUsername());
-        userInfo.setPassword(user.getPassword());
-        //TODO map contacts
-        return userInfo;
+        return mapper.map(user, UserInfo.class);
     }
 
 }
