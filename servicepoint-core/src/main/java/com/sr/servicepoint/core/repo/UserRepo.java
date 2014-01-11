@@ -7,7 +7,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface UserRepo extends JpaRepository<User, String>,
-        PagingAndSortingRepository<User, String> {
+        PagingAndSortingRepository<User, String>, UserRepoCustom {
 
     User findByUsername(String username);
 

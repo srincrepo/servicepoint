@@ -37,7 +37,6 @@ public class UserRepoTest {
 
     @Test
     public void init() {
-
         User user1 = new User();
         user1.setId(1l);
         user1.setUsername(ADMIN);
@@ -55,6 +54,18 @@ public class UserRepoTest {
         contacts.add(new Contact(ContactType.MOBILE, "11111"));
         user2.setContacts(contacts);
         userRepo.save(user2);
+    }
+
+    @Test
+    public void testSearchUsersUsingFirstName() {
+        List<User> users = userRepo.searchUsers("test1", null);
+        assertEquals(1, users.size());
+    }
+
+    @Test
+    public void testSearchUsersUsingLastName() {
+        List<User> users = userRepo.searchUsers(null, "test2");
+        assertEquals(1, users.size());
     }
 
     @Test
