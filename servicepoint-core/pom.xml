@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.solutionsresource</groupId>
+  <groupId>com.sr</groupId>
   <artifactId>servicepoint-core</artifactId>
   <packaging>jar</packaging>
   <name>Servicepoint :: Core</name>
   <description>This module contains the user management and admin features</description>
 
   <parent>
-    <groupId>com.solutionsresource</groupId>
+    <groupId>com.sr</groupId>
     <artifactId>servicepoint-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../parent/pom.xml</relativePath>
@@ -91,7 +91,7 @@
               <outputDirectory>target/generated-sources/java</outputDirectory>
               <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
               <includes>
-                <include>com.solutionsresource.servicepoint.core.entity</include>
+                <include>com.sr.servicepoint.core.entity</include>
               </includes>
             </configuration>
           </execution>
