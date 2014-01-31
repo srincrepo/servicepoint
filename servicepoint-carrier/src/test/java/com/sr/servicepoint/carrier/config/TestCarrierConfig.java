@@ -1,4 +1,4 @@
-package com.sr.servicepoint.carrier.config.config;
+package com.sr.servicepoint.carrier.config;
 
 public class TestCarrierConfig {
 

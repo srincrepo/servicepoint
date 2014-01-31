@@ -1,4 +1,4 @@
-package com.sr.servicepoint.carrier.config.repo;
+package com.sr.servicepoint.carrier.repo;
 
 public class CarrierRepoTest {
 

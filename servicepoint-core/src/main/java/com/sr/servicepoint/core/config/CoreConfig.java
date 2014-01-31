@@ -1,5 +1,10 @@
 package com.sr.servicepoint.core.config;
 
+import java.util.Properties;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.hibernate.jpa.HibernatePersistenceProvider;
@@ -13,10 +18,6 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories("com.sr.servicepoint.core.repo")
