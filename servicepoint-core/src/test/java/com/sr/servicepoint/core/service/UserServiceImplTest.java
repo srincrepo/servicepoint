@@ -69,6 +69,9 @@ public class UserServiceImplTest {
 
     @Test
     public void testGetUserByUsernameWhenFound() {
+    	
+    	//JLC001 - test commit to github
+    	
         String username = "admin";
         String contactDetail = "11111";
         ContactType contactType = ContactType.HOME;
